@@ -1,6 +1,6 @@
 package com.example.secured_app.config;
 
-import com.example.secured_app.service.CustomUserDetailsService;
+import com.example.secured_app.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

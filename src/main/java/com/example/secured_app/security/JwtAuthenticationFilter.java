@@ -1,4 +1,4 @@
-package com.example.secured_app.config;
+package com.example.secured_app.security;
 
 import com.example.secured_app.security.JwtUtil;
 import com.example.secured_app.service.CustomUserDetailsService;
