@@ -25,6 +25,13 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.ROLE_USER;
+    private UserRole role;
+
+    @PrePersist
+    public void setDefaultRole() {
+        if (this.role == null) {
+            this.role = UserRole.USER;
+        }
+    }
 
 }
