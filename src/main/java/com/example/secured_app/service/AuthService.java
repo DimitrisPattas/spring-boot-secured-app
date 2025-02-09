@@ -23,6 +23,7 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService userDetailsService;
+    private final TokenBlacklistService tokenBlacklistService;
 
     public AuthResponse register(RegisterRequest request) {
         User user = User.builder()
@@ -45,5 +46,9 @@ public class AuthService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(request.email());
         String token = jwtUtil.generateToken(userDetails);
         return new AuthResponse(token);
+    }
+
+    public void logout(String token) {
+        tokenBlacklistService.blacklistToken(token);
     }
 }
